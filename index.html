@@ -234,19 +234,5 @@
       </section>
     </main>
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
-    <script>
-      let lastPageY = 0
-      window.addEventListener('scroll', function () {
-        const navbar = document.querySelector('nav')
-        let pageY = this.pageYOffset
-        if (pageY > lastPageY) {
-          navbar.classList.add('hide')
-        } else {
-          navbar.classList.remove('hide')
-        }
-
-        lastPageY = pageY
-      })
-    </script>
   </body>
 </html>
