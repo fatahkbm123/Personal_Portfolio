@@ -7,8 +7,9 @@ window.addEventListener('scroll', function () {
 
   section.forEach((s) => {
     const sectionTop = s.offsetTop
+    const sectionHeight = s.clientHeight
 
-    if (pageYOffset >= sectionTop) {
+    if (pageYOffset >= sectionTop - sectionHeight / 30) {
       currentSection = s.getAttribute('id')
     }
   })
@@ -26,4 +27,6 @@ window.addEventListener('scroll', function () {
   } else {
     navbar.classList.remove('active')
   }
+
+  console.log(currentSection)
 })
