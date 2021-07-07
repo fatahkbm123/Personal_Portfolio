@@ -27,6 +27,4 @@ window.addEventListener('scroll', function () {
   } else {
     navbar.classList.remove('active')
   }
-
-  console.log(currentSection)
 })

@@ -271,8 +271,22 @@ img {
 #projects .contentProject {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 5px;
+  gap: 30px;
   justify-content: center;
+  align-items: center;
+}
+
+#projects a:hover .no {
+  visibility: visible;
+  opacity: 1;
+  top: -35px;
+  right: 10px;
+}
+
+#projects a:hover .desc {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
 }
 
 #projects a {
@@ -280,12 +294,9 @@ img {
   text-align: center;
   background: white;
   max-width: 100% !important;
-  border: 1px solid rgba(102, 51, 153, 0.2);
   transition: 0.3s all ease-in-out !important;
-  /* padding: 20px; */
-  box-shadow: 0 0 30px -10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 50px -10px rgba(0, 0, 0, 0.3);
   position: relative;
-  overflow: hidden;
 }
 
 #projects a:hover {
@@ -297,51 +308,79 @@ img {
   content: '';
   transition: 0.5s all ease-in-out !important;
   position: absolute;
-  bottom: 0;
   right: 0;
-  width: 0;
+  width: 5px;
+  top: 0;
   height: 0;
   background: transparent;
   opacity: 0;
   visibility: hidden;
-  transform: scale(0);
 }
 
 a img {
   width: 100%;
   border-radius: 0;
-  box-shadow: 0 20px 20px -10px rgba(0, 0, 0, 0.3);
 }
 
 #projects a:hover:after {
   content: '';
-  transform-origin: center;
-  transform: scale(1);
   opacity: 1;
   visibility: visible;
   position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 5px;
+  height: 100%;
   background: rebeccapurple;
 }
 
 .desc {
-  padding: 20px;
+  width: 90%;
+  height: 120px;
+  border-radius: 20px 20px 20px 0;
+  background: black;
+  padding: 10px;
+  position: absolute;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  bottom: -10px;
+  left: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.7s;
+  transform-origin: bottom left;
 }
 
 .desc h3 {
   margin-bottom: 15px !important;
-  color: rebeccapurple;
+  font-size: 16px;
+  color: whitesmoke;
 }
 
 .desc span {
   background: rgba(102, 51, 153, 0.2);
   border-radius: 4px;
   font-weight: 300;
-  padding: 8px 15px;
+  padding: 4px 10px;
+  font-size: 13px;
   border: 1px solid rgba(102, 51, 153, 0.5);
+}
+
+.no {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 3rem;
+  color: transparent;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: purple;
+  z-index: 99;
+  font-weight: bold;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
 }
 
 .desc div > * {
@@ -407,6 +446,31 @@ a img {
 }
 
 @media (max-width: 600px) {
+  .desc {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+    width: 90%;
+    height: 120px;
+    padding: 20px 10px;
+  }
+
+  .desc span {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  .desc h3 {
+    margin-bottom: 8px !important;
+  }
+
+  .no {
+    top: -35px;
+    right: 10px;
+    opacity: 1;
+    visibility: visible;
+  }
+
   .textSkill {
     width: 100%;
     margin-top: -20px !important;
@@ -414,7 +478,6 @@ a img {
 
   .textSkill h1 {
     font-size: 1.6rem !important;
-    /* color: black !important; */
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
   }
@@ -437,14 +500,12 @@ a img {
   #projects a::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
+    top: 0;
+    right: 0;
+    height: 100%;
     background: rebeccapurple;
     visibility: visible !important;
     opacity: 1 !important;
-    transform: scale(1);
   }
 
   h1,
